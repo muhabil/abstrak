@@ -1,0 +1,403 @@
+/* Menggunakan font Poppins yang sudah kita impor di HTML */
+/* Ini adalah CSS untuk mengatur tata letak dan gaya */
+
+/* === Global Reset & Variabel Warna === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Ukuran font dasar untuk perhitungan 'rem' */
+  font-size: 16px;
+}
+
+/* Kita terapkan style dasar ke class .mode-rapi 
+  Ini adalah desain yang nyaman dilihat & warna seimbang 
+*/
+.mode-rapi {
+  font-family: 'Poppins', sans-serif; /* Font sans-serif yang mudah dibaca */
+  background-color: #f4f7f6; /* Warna latar belakang netral */
+  color: #333; /* Warna teks utama */
+  line-height: 1.6;
+
+  /* Transisi untuk memperhalus perubahan saat ganti mode */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Pengaturan Layout Utama (Flexbox) === */
+/* Menggunakan Flexbox untuk mengatur posisi elemen */
+.container-utama {
+  width: 90%;
+  max-width: 900px; /* Batas lebar agar tidak terlalu lebar di desktop */
+  margin: 2rem auto; /* Atas-bawah 2rem, kiri-kanan auto (tengah) */
+  display: flex;
+  flex-direction: column; /* Menyusun elemen ke bawah */
+  gap: 1.5rem; /* Jarak antar kartu-jawaban */
+}
+
+/* === Header dan Footer === */
+.header-utama {
+  text-align: center;
+  padding: 2rem;
+  background-color: #004a99; /* Warna primer yang tenang */
+  color: white;
+  border-bottom: 5px solid #ffa500; /* Aksen warna oranye */
+}
+
+.header-utama h1 { /* */
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.header-utama h2 { /* */
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.footer-utama {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background-color: #333;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* === Tombol Kontrol Tampilan === */
+/* Styling untuk tombol ganti mode */
+.kontrol-tampilan {
+  display: flex; /* Menggunakan flexbox agar tombol mudah diatur */
+  justify-content: center; /* Tombol di tengah */
+  margin-bottom: 1rem;
+}
+
+#toggleModeButton {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem; /* Padding agar nyaman disentuh */
+  border: none;
+  border-radius: 8px;
+  background-color: #ffa500; /* Warna aksen yang menonjol tapi serasi */
+  color: #333;
+  cursor: pointer;
+  
+  /* Transisi saat di-hover */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#toggleModeButton:hover {
+  background-color: #ffc107;
+  transform: translateY(-2px); /* Efek sedikit terangkat */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Kartu Jawaban (Styling Konten) === */
+.kartu-jawaban {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Agar border-radius rapi */
+  
+  /* Transisi untuk efek hover */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.kartu-jawaban:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Judul sub-bab (h3) */
+.judul-subbagian {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #004a99; /* Warna sama dengan header agar konsisten */
+  background-color: #f4f7f6; /* Sedikit beda dari body */
+  padding: 1rem 1.5rem; /* Padding internal */
+  border-bottom: 2px solid #eee;
+  
+  /* Tanda bahwa h3 bisa diklik */
+  cursor: pointer; 
+  
+  /* Transisi saat di-hover */
+  transition: background-color 0.2s ease;
+}
+
+.judul-subbagian:hover {
+  background-color: #e9ecef;
+}
+
+/* Konten jawaban (paragraf, list) */
+.konten-jawaban {
+  padding: 1.5rem; /* Jarak konten dari tepi kartu */
+  
+  /* Transisi saat konten disembunyikan/ditampilkan */
+  /* Ini akan kita gunakan nanti dengan JavaScript */
+  transition: all 0.3s ease-out;
+}
+
+.konten-jawaban p {
+  margin-bottom: 1rem; /* Jarak antar paragraf */
+}
+
+.konten-jawaban ul,
+.konten-jawaban ol {
+  /* Padding agar list tidak menempel di kiri */
+  padding-left: 2rem; 
+  margin-bottom: 1rem;
+}
+
+.konten-jawaban li {
+  margin-bottom: 0.5rem; /* Jarak antar list item */
+}
+
+/* Style untuk elemen 'strong' dan 'code' agar lebih menonjol */
+strong {
+  font-weight: 600;
+  color: #004a99;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #e9ecef;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================== */
+/* === CSS UNTUK JAVASCRIPT === */
+/* =========================================== */
+
+/* Style untuk menyembunyikan konten */
+/* Kita tambahkan transisi agar lebih halus */
+.konten-jawaban {
+  overflow: hidden;
+  max-height: 1000px; /* Atur ketinggian maksimum (bisa diubah) */
+  transition: max-height 0.4s ease-out, 
+              padding 0.4s ease-out, 
+              opacity 0.3s ease-in;
+  opacity: 1;
+}
+
+.konten-jawaban.konten-tersembunyi {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+
+/* STYLE UNTUK MODE BERANTAKAN */
+.mode-berantakan {
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Font tidak proporsional */
+  background-color: #330033; /* Warna mencolok */
+  color: #00ff00; /* Warna teks tidak serasi */
+  
+  /* Hapus transisi agar perubahan terasa patah */
+  transition: none; 
+}
+
+/* Tata letak acak */
+.mode-berantakan .header-utama {
+  background-color: #ff00ff;
+  color: #ffff00;
+  transform: rotate(-3deg) skew(5deg);
+  border-bottom: 10px dotted #00ffff;
+}
+
+.mode-berantakan h1 {
+  font-size: 4rem; /* Ukuran teks tidak proporsional */
+  animation: guncang 0.5s infinite;
+}
+
+.mode-berantakan h2 {
+  font-size: 0.5rem; /* Ukuran teks tidak proporsional */
+}
+
+.mode-berantakan .kartu-jawaban {
+  background-color: #ffff00;
+  color: #00008b;
+  margin: 2rem 5rem; /* Tata letak acak */
+  transform: rotate(4deg) scale(1.1);
+  box-shadow: 10px 10px 0px #ff0000;
+}
+
+.mode-berantakan .kartu-jawaban:nth-child(even) {
+  /* Tata letak acak untuk elemen genap */
+  transform: rotate(-5deg) scale(0.9);
+  background-color: #00ffff;
+  color: #ff00ff;
+}
+
+.mode-berantakan .judul-subbagian {
+  color: #ff0000;
+  background-color: #333;
+  font-size: 2.5rem; /* Tidak proporsional */
+  text-align: right;
+}
+
+.mode-berantakan #toggleModeButton {
+  background-color: #00ff00;
+  color: #ff0000;
+  font-size: 2rem;
+  border-radius: 0;
+  border: 5px dashed #ff00ff;
+  transform: scale(1.5) rotate(10deg);
+}
+
+/* Animasi untuk 'mengguncang' elemen */
+@keyframes guncang {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================== */
+/* === BAGIAN RESPONSIVE WEB DESIGN (RWD) === */
+/* Menggunakan @media query */
+/* =========================================== */
+
+/* CATATAN: 
+  CSS "Mode Rapi" yang kita buat tadi pada dasarnya sudah "Mobile-First" 
+  karena menggunakan `flex-direction: column` (satu kolom). 
+  Ini sudah memenuhi syarat untuk Tablet dan Smartphone .
+  
+  Sekarang kita tambahkan penyesuaian untuk Desktop (2 kolom) 
+  dan penyesuaian ukuran untuk Smartphone.
+*/
+
+
+/* 1. Layar Desktop (Besar) (≥ 1024px) */
+/* Tampilkan dua kolom */
+@media (min-width: 1024px) {
+  
+  .container-utama {
+    /* Ganti dari Flexbox ke Grid untuk layout 2 kolom */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Buat 2 kolom sama lebar */
+    gap: 1.5rem; /* Jarak antar kartu */
+    max-width: 1100px; /* Container bisa lebih lebar di desktop */
+  }
+
+  .kontrol-tampilan {
+    /* Tombol ganti mode kita buat span penuh 2 kolom */
+    grid-column: 1 / -1;
+  }
+
+  /* Kita punya 3 kartu jawaban (A, B, C).
+    - Kartu A akan di kolom 1, baris 2.
+    - Kartu B akan di kolom 2, baris 2.
+    - Kartu C akan di kolom 1, baris 3.
+    Agar lebih rapi, kita buat kartu C (terakhir) span penuh 2 kolom juga.
+  */
+  .kartu-jawaban:last-of-type {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* 2. Layar Tablet (Medium) (600px - 1023px) */
+/* Satu kolom, ukuran teks menengah */
+@media (min-width: 600px) and (max-width: 1023px) {
+  
+  /* Karena CSS dasar kita sudah 1 kolom (flex-direction: column),
+    kita tidak perlu mengubah layout. Kita hanya sesuaikan container.
+  */
+  .container-utama {
+    max-width: 700px; /* Batas lebar khusus tablet */
+  }
+  
+  html {
+    font-size: 15.5px; /* Teks "menengah" */
+  }
+}
+
+
+/* 3. Layar Smartphone (Kecil) (≤ 599px) */
+/* Satu kolom, teks dan tombol diperbesar */
+@media (max-width: 599px) {
+
+  html {
+    font-size: 17px; /* Ukuran teks dasar diperbesar */
+  }
+
+  .container-utama {
+    width: 95%; /* Gunakan hampir seluruh lebar layar */
+  }
+
+  .header-utama h1 {
+    font-size: 2rem; /* Sesuaikan ukuran judul */
+  }
+
+  .header-utama h2 {
+    font-size: 1.1rem;
+  }
+
+  #toggleModeButton {
+    padding: 1rem 1.5rem; /* Tombol diperbesar agar mudah disentuh */
+    width: 90%; /* Tombol dibuat lebih lebar */
+  }
+
+  .judul-subbagian {
+    font-size: 1.15rem; /* Judul sub-bab juga diperbesar */
+  }
+
+  .konten-jawaban {
+    padding: 1.25rem; /* Sesuaikan padding di dalam kartu */
+  }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Laporan Praktikum 2 - (Nama Kamu)</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="mode-rapi">
+
+    <header class="header-utama">
+        <h1>LAPORAN PRAKTIKUM</h1> <h2>Muhammad Nabil | 202431173</h2> </header>
+
+    <main class="container-utama">
+        
+        <div class="kontrol-tampilan">
+            <button id="toggleModeButton">Ganti Mode (Rapi/Berantakan)</button>
+        </div>
+
+        <section class="kartu-jawaban">
+            <h3 class="judul-subbagian">A. Mengapa menggunakan CSS dan JavaScript dalam pemrograman web modern?</h3> <div class="konten-jawaban">
+                <p>Penggunaan CSS dan JavaScript sangat penting karena mereka membagi tugas pengembangan web menjadi tiga lapisan yang jelas:</p>
+                <ul>
+                    <li><strong>HTML (Struktur):</strong> Bertugas sebagai "rangka" atau fondasi dari halaman web. HTML menentukan elemen apa saja yang ada di halaman, seperti judul, paragraf, gambar, dan tombol.</li>
+                    <li><strong>CSS (Presentasi/Tampilan):</strong> Bertugas sebagai "kulit" atau desainer. CSS mengatur bagaimana tampilan visual elemen HTML tersebut . Ini mencakup warna , tata letak (layout) , ukuran teks , dan animasi . Tanpa CSS, web hanya akan berupa teks hitam-putih yang berantakan.</li>
+                    <li><strong>JavaScript (Interaktivitas):</strong> Bertugas sebagai "otak" atau penggerak . JavaScript menambahkan fungsionalitas dan interaksi ke halaman web. Contohnya adalah validasi form, memunculkan popup , mengganti konten secara dinamis (seperti mengganti mode tampilan ), atau mengambil data dari server tanpa me-reload halaman.</li>
+                </ul>
+                <p>Di web modern, pengguna mengharapkan tampilan yang menarik (CSS) dan pengalaman yang responsif/interaktif (JavaScript). Keduanya memisahkan logika dari struktur (HTML), membuat kode lebih bersih, mudah dikelola, dan efisien.</p>
+            </div>
+        </section>
+
+        <section class="kartu-jawaban">
+            <h3 class="judul-subbagian">B. Jelaskan konsep dan tujuan utama dari Responsive Web Design (RWD)!</h3> <div class="konten-jawaban">
+                <p><strong>Responsive Web Design (RWD)</strong> adalah sebuah pendekatan desain web yang bertujuan agar tampilan situs web dapat beradaptasi secara otomatis (responsif) terhadap berbagai ukuran layar perangkat yang digunakan pengguna .</p>
+                <p><strong>Konsep utamanya</strong> adalah menggunakan "fluid grids" (layout yang fleksibel), "flexible images" (gambar yang ukurannya bisa menyesuaikan), dan "media queries" .</p>
+                <p><strong>Tujuan utamanya</strong> adalah untuk memberikan <em>user experience</em> (UX) yang optimal di semua perangkat—mulai dari smartphone , tablet , hingga desktop —hanya dengan menggunakan satu basis kode HTML dan CSS. Pengguna tidak perlu melakukan zoom-in/zoom-out atau geser kanan-kiri untuk membaca konten, sehingga web lebih nyaman diakses oleh siapa saja, di mana saja.</p>
+            </div>
+        </section>
+
+        <section class="kartu-jawaban">
+            <h3 class="judul-subbagian">C. Bagaimana kombinasi CSS, JavaScript, dan prinsip RWD dapat menghasilkan tampilan web yang interaktif sekaligus adaptif?</h3> <div class="konten-jawaban">
+                <p>Ketiganya saling melengkapi untuk menciptakan pengalaman web yang utuh :</p>
+                <ol>
+                    <li><strong>RWD (via CSS Media Query) sebagai Fondasi Adaptif:</strong> RWD (menggunakan CSS @media ) bertugas mengatur "cetakan" layout berdasarkan ukuran layar. Misalnya, RWD menentukan: "Jika layar desktop , tampilkan 2 kolom. Jika layar smartphone , ubah jadi 1 kolom."</li>
+                    
+                    <li><strong>CSS sebagai Penghias (Styling):</strong> CSS kemudian mengisi "cetakan" RWD itu dengan gaya . CSS mengatur warna, font , padding, margin , dan memberikan efek transisi agar perpindahan layout RWD terlihat mulus (tidak patah-patah).</li>
+                    
+                    <li><strong>JavaScript sebagai Penggerak (Interaktivitas):</strong> JavaScript menambahkan interaksi di atas layout adaptif tersebut.</li>
+                </ol>
+                <p><strong>Contoh Sinergi (sesuai tugas ini):</strong></p>
+                <p>Saat pengguna membuka web di HP (layar kecil ), <strong>RWD</strong> langsung mengubah layout menjadi satu kolom. <strong>CSS</strong> memastikan ukuran font dan tombol menjadi lebih besar agar mudah dibaca dan disentuh . Kemudian, pengguna mengklik tombol "Ganti Mode" . <strong>JavaScript</strong> menangkap klik itu dan mengganti <em>class</em> di <code>&lt;body&gt;</code>. <strong>CSS</strong> lalu menerapkan aturan gaya yang berbeda (misal: dari 'mode-rapi' ke 'mode-berantakan' ) secara instan. Hasilnya: Tampilan yang sudah adaptif (RWD) tetap bisa interaktif (JavaScript) dan tetap cantik (CSS).</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-utama">
+        <p>Proyek 2 Pemrograman Web - 2024</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
